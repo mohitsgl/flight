@@ -48,7 +48,7 @@ public class Flight {
     @JoinColumn(name = "plane_id")
     private Plane plane;
 
+
     @ManyToMany(mappedBy = "flights")
     private List<User> users;
-
 }

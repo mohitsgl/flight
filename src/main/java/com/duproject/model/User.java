@@ -33,9 +33,8 @@ public class User {
 	private String score;
 
 	@ManyToMany
-	@JoinTable(name = "booking", uniqueConstraints = {
-			@UniqueConstraint(columnNames = "booking_id")
-	})
+	@JoinTable(name = "booking",joinColumns = @JoinColumn(name = "flight_Id"),
+			inverseJoinColumns = @JoinColumn(name = "user_Id"))
 	private List<Flight> flights;
 
 
