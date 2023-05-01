@@ -7,5 +7,6 @@ import java.io.Serializable;
 @Embeddable
 public class booking implements Serializable {
 private int mohit;
+private int raghavbsdwala
 
 }
