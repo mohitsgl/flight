@@ -4,8 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.duproject.model.User;
 
-public interface UserRepo extends JpaRepository<User, String>{
-	
-	
-	
+public interface UserRepo extends JpaRepository<User, String> {
 }

@@ -33,6 +33,6 @@ public class Plane {
     @NotNull
     private int status;
 
-    @OneToMany(mappedBy = "plane")
-    private List<Flight> flights;
+//    @OneToMany(mappedBy = "plane")
+//    private List<Flight> flights;
 }

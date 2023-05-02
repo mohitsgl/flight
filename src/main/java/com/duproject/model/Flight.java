@@ -17,11 +17,17 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "flights")
 public class Flight {
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "flight_id")
+//    private String flightID;
 
     @Id
     @Column(name = "flight_id")
-    private String flightID;
+    private int flightId;
 
     @NotNull
     private String source;
@@ -30,25 +36,38 @@ public class Flight {
     private String destination;
 
     @NotNull
-    @Column(name = "available_seats")
-    private int availableSeats;
+    private LocalTime departure;
+
+    @NotNull
+    private LocalTime arrival;
 
     @NotNull
     @Column(name = "date")
     private LocalDate dof;
 
     @NotNull
-    @Column(name = "time")
-    private LocalTime tof;
+    private int duration;
+
+    @NotNull
+    private int fare;
+
+    @NotNull
+    @Column(name = "available_seats")
+    private int availableSeats;
 
     @NotNull
     private int status;
 
-    @ManyToOne
-    @JoinColumn(name = "plane_id")
-    private Plane plane;
+//    @ManyToMany(cascade = { CascadeType.ALL })
+//    @JoinTable(
+//            name = "bookings",
+//            joinColumns = { @JoinColumn(name = "flight_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+//    )
+//    private Set<User> users = new HashSet<>();
 
-    @ManyToMany(mappedBy = "flights")
-    private List<User> users;
+    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
+    private List<UserFlight> userFlights = new ArrayList<>();
+
 
 }
